@@ -1,23 +1,18 @@
-from flask import Flask
+from flask import Flask, jsonify, request
+from flask_cors import CORS
 from flask_restful import Api, Resource
-
+import trainer
 app = Flask(__name__)
-api = Api(app)
+CORS(app)
 
-class HelloWorld(Resource): # HelloWorld Resource
-    def get(self): # Handles get request
-        return {"data": "Hello World"} # Must return values in JSON format
-    
-    def post(self):
-        return {"data": "Posted"}
-
-api.add_resource(HelloWorld, "/helloworld") # Adds resource to api
+@app.route('/')
+def index():
+    user_input = request.json["user_input"]
+    return jsonify({'msg':str(trainer.brain(user_input))})
 
 if __name__ == "__main__":
     app.run(debug=True) # only run true in testing environment
 
 
-# To run API type python main.py in the console
-# To run test file type python test.py in the console
 
 
