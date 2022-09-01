@@ -34,6 +34,6 @@ def bag_of_words(tokenized_sentence, all_words): # sorts the words and gives the
     return bag
 
 
-
+#25:25
 
 

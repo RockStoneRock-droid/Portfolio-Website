@@ -108,6 +108,8 @@ torch.save(data, FILE) # saves the file
 
 print(f"training complete. file saved to {FILE}")
 
+# If you change intents.json you must run the trainer afterwards
+
 
 
 
