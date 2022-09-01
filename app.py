@@ -1,8 +1,9 @@
 from flask import Flask, render_template, jsonify, request
-
+from flask_cors import CORS
 from chat import get_response
 
 app = Flask(__name__)
+CORS(app) # allows cross origin resource sharing
 
 @app.get("/") # sets up an app route for functions
 def index_get():
